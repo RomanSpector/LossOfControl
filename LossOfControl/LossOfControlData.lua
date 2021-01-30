@@ -1,5 +1,5 @@
 --######################################################################
---######         Bakcport LossOfControl from retail           #######
+--######         Bakcport LossOfControl from retail              #######
 ------------------------------------------------------------------------
 --######################################################################
 ------------------------------------------------------------------------
@@ -286,9 +286,9 @@ function LossOfControlFrame_AnimPlay( self )
 end
 
 function LossOfControlFrame_AnimStop( self )
-	self.RedLineTop.Anim:Play()
-	self.RedLineBottom.Anim:Play()
-	self.Icon.Anim:Play()
+	self.RedLineTop.Anim:Stop;()
+	self.RedLineBottom.Anim:Stop()
+	self.Icon.Anim:Stop()
 end
 
 function LossOfControlFrame_AnimIsPlaying( self )
@@ -452,9 +452,8 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
             timeRemaining = duration,
             duration = duration,
             lockoutSchool = lockoutSchool,
-            AbilityName = AbilityName,
+            priority = 5,
             displayType = 2,
-            priority = 5
         }
 
         LossOfControl_ScanEvents(Fields);
@@ -490,7 +489,6 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
                 timeRemaining = expirationTime - GetTime(),
                 duration = duration,
                 lockoutSchool = nil,
-                AbilityName = AbilityName,
                 priority = spellInfo[spellID] and spellInfo[spellID][2] or spellInfo[AbilityName][2],
                 displayType = 2,
             }
