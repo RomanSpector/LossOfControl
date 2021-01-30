@@ -1,4 +1,5 @@
 ## Interface: 30300
+## Title: Loss of Control Alerts
 ## Author: RomanSpector & Blizzard
 ## Notes: Bakcport LossOfControl from retail
 
