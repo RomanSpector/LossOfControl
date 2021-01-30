@@ -1,0 +1,10 @@
+## Interface: 30300
+## Author: RomanSpector & Blizzard
+## Notes: Bakcport LossOfControl from retail
+
+Lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Lib\AceTimer-3.0\AceTimer-3.0.xml
+
+LossOfControlData.lua
+LossOfControl.xml
+LossOfControllua
