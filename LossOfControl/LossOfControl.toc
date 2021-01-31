@@ -1,11 +1,11 @@
 ## Interface: 30300
 ## Title: Loss of Control Alerts
+## Version: 1.0
 ## Author: RomanSpector & Blizzard
 ## Notes: Bakcport LossOfControl from retail
+## DefaultState: enabled
+## OptionalDeps: Ace3, LibSink-2.0
+## SavedVariables: LossOfControlDB
 
-Lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Lib\AceTimer-3.0\AceTimer-3.0.xml
-
-LossOfControlData.lua
 LossOfControl.xml
-LossOfControllua
+LossOfControlOptions.lua

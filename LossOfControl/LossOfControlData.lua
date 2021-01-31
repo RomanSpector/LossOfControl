@@ -7,67 +7,9 @@
 ------------------------------------------------------------------------
 --######################################################################
 
-LOC_TYPE_SILENCE = true
-LOC_TYPE_DISARM = true
-LOC_TYPE_INTERRUPT = true
-
-local DISPLAY_TYPE_FULL = 2
-local DISPLAY_TYPE_ALERT = 1
-local DISPLAY_TYPE_NONE = 0
-
 SOUNDKIT = {
     UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468",
 }
-
-if GetLocale() == "ruRU" then
-    LOSS_OF_CONTROL_SECONDS = "секунд";
-
-    LOSS_OF_CONTROL_DISPLAY_BANISH = "Изгнание";
-    LOSS_OF_CONTROL_DISPLAY_CHARM = "Подчинение";
-    LOSS_OF_CONTROL_DISPLAY_CONFUSE = "Растерянность";
-    LOSS_OF_CONTROL_DISPLAY_CYCLONE = "Смерч";
-    LOSS_OF_CONTROL_DISPLAY_DAZE = "Головокружение";
-    LOSS_OF_CONTROL_DISPLAY_DISARM = "Без оружия";
-    LOSS_OF_CONTROL_DISPLAY_DISORIENT = "Дезориентация";
-    LOSS_OF_CONTROL_DISPLAY_FEAR = "Страх";
-    LOSS_OF_CONTROL_DISPLAY_FREEZE = "Заморозка";
-    LOSS_OF_CONTROL_DISPLAY_HORROR = "Ужас";
-    LOSS_OF_CONTROL_DISPLAY_INCAPACITATE = "Паралич";
-    LOSS_OF_CONTROL_DISPLAY_INTERRUPT_SCHOOL = "%s: способности недоступны";
-    LOSS_OF_CONTROL_DISPLAY_PACIFY = "Усмирение";
-    LOSS_OF_CONTROL_DISPLAY_POLYMORPH = "Превращение";
-    LOSS_OF_CONTROL_DISPLAY_POSSESS = "Одержимость";
-    LOSS_OF_CONTROL_DISPLAY_ROOT = "Обездвиженность";
-    LOSS_OF_CONTROL_DISPLAY_SAP = "Ошеломление";
-    LOSS_OF_CONTROL_DISPLAY_SHACKLE_UNDEAD = "Оковы";
-    LOSS_OF_CONTROL_DISPLAY_SILENCE = "Немота";
-    LOSS_OF_CONTROL_DISPLAY_SLEEP = "Сон";
-    LOSS_OF_CONTROL_DISPLAY_STUN = "Оглушение";
-else
-    LOSS_OF_CONTROL_SECONDS = "seconds";
-
-    LOSS_OF_CONTROL_DISPLAY_BANISH = "Banished";
-    LOSS_OF_CONTROL_DISPLAY_CHARM = "Charmed";
-    LOSS_OF_CONTROL_DISPLAY_CONFUSE = "Confused";
-    LOSS_OF_CONTROL_DISPLAY_CYCLONE = "Cycloned";
-    LOSS_OF_CONTROL_DISPLAY_DAZE = "Dazed";
-    LOSS_OF_CONTROL_DISPLAY_DISARM = "Disarmed";
-    LOSS_OF_CONTROL_DISPLAY_DISORIENT = "Disoriented";
-    LOSS_OF_CONTROL_DISPLAY_FEAR = "Feared";
-    LOSS_OF_CONTROL_DISPLAY_FREEZE = "Frozen";
-    LOSS_OF_CONTROL_DISPLAY_HORROR = "Horrified";
-    LOSS_OF_CONTROL_DISPLAY_INCAPACITATE = "Incapacitated";
-    LOSS_OF_CONTROL_DISPLAY_INTERRUPT_SCHOOL = "%s Locked";
-    LOSS_OF_CONTROL_DISPLAY_PACIFY = "Pacified";
-    LOSS_OF_CONTROL_DISPLAY_POLYMORPH = "Polymorphed";
-    LOSS_OF_CONTROL_DISPLAY_POSSESS = "Possessed";
-    LOSS_OF_CONTROL_DISPLAY_ROOT = "Rooted";
-    LOSS_OF_CONTROL_DISPLAY_SAP = "Sapped";
-    LOSS_OF_CONTROL_DISPLAY_SHACKLE_UNDEAD = "Shackled";
-    LOSS_OF_CONTROL_DISPLAY_SILENCE = "Silenced";
-    LOSS_OF_CONTROL_DISPLAY_SLEEP = "Asleep";
-    LOSS_OF_CONTROL_DISPLAY_STUN = "Stunned";
-end
 
 local blacklist = {
     [72120] = true,   
@@ -279,6 +221,20 @@ C_LossOfControl.ControleList = {
     [GetSpellInfo(56632)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Tangled Webs
 }
 
+function C_LossOfControl:SetDisplay()
+    for _, info in pairs(self.ControleList) do
+        if info and info[1] == LOSS_OF_CONTROL_DISPLAY_DISARM then
+           info[3] = LossOfControl:GetDisplayValue(LOC_TYPE_DISARM)
+        elseif info and info[1] == LOSS_OF_CONTROL_DISPLAY_ROOT then
+            info[3] = LossOfControl:GetDisplayValue(LOC_TYPE_ROOT)
+        elseif info and info[1] == LOSS_OF_CONTROL_DISPLAY_SILENCE then
+            info[3] = LossOfControl:GetDisplayValue(LOC_TYPE_SILENCE)
+        elseif info then
+            info[3] = LossOfControl:GetDisplayValue(LOC_TYPE_FULL)
+        end
+    end
+end
+
 function LossOfControlFrame_AnimPlay( self )
 	self.RedLineTop.Anim:Play()
 	self.RedLineBottom.Anim:Play()
@@ -286,7 +242,7 @@ function LossOfControlFrame_AnimPlay( self )
 end
 
 function LossOfControlFrame_AnimStop( self )
-	self.RedLineTop.Anim:Stop;()
+	self.RedLineTop.Anim:Stop()
 	self.RedLineBottom.Anim:Stop()
 	self.Icon.Anim:Stop()
 end
@@ -366,7 +322,7 @@ C_LossOfControl.ControlData = {}
 local ActiveControl = {}
 
 C_LossOfControl.GetActiveLossOfControlDataCount = function()
-    return 1 -- #C_LossOfControl.ControlData
+    return 1 -- #C_LossOfControl.ControlData нахуй это вообще нужно, если всегда единицу возвращает?
 end
 
 C_LossOfControl.GetActiveLossOfControlData = function(eventIndex)
@@ -416,25 +372,10 @@ function LossOfControl_InterruptUpdate()
     C_LossOfControl.ScanEvents:TriggerEvent("LOSS_OF_CONTROL_UPDATE");
 end
 
-function LossOfControl_TypeIgnore(spellID, spellName)
-    local db = C_LossOfControl.ControleList
-    if db[spellName] then
-        if ( ( db[spellName][1] == LOSS_OF_CONTROL_DISPLAY_SILENCE and not LOC_TYPE_SILENCE ) 
-            or ( db[spellName][1] == LOSS_OF_CONTROL_DISPLAY_DISARM and not LOC_TYPE_DISARM ) ) then  
-            return true
-        end
-    elseif db[spellID] then
-        if ( ( db[spellID][1] == LOSS_OF_CONTROL_DISPLAY_SILENCE and not LOC_TYPE_SILENCE ) 
-            or ( db[spellID][1] == LOSS_OF_CONTROL_DISPLAY_DISARM and not LOC_TYPE_DISARM ) ) then 
-            return true
-        end
-    end
-end
-
 function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
     local Fields
-    if lockoutSchool and LOC_TYPE_INTERRUPT then
-        local AbilityName, _, iconTexture = GetSpellInfo(spellId);
+    if lockoutSchool then
+        local _, _, iconTexture = GetSpellInfo(spellId);
         local duration;
         if lockoutChannel[spellName] then
             _, duration = GetSpellCooldown(lockoutChannel[spellName]);
@@ -453,7 +394,7 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
             duration = duration,
             lockoutSchool = lockoutSchool,
             priority = 5,
-            displayType = 2,
+            displayType = LossOfControl:GetDisplayValue(LOC_TYPE_INTERRUPT),
         }
 
         LossOfControl_ScanEvents(Fields);
@@ -475,7 +416,6 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
     for i = 1, 255 do
         local AbilityName, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL")
         if (not AbilityName) or blacklist[spellID] then break end
-        if LossOfControl_TypeIgnore(spellID, AbilityName) then return end
         if C_LossOfControl.ControleList[spellID]
         or C_LossOfControl.ControleList[AbilityName] then
             local spellInfo = C_LossOfControl.ControleList;
@@ -490,7 +430,7 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
                 duration = duration,
                 lockoutSchool = nil,
                 priority = spellInfo[spellID] and spellInfo[spellID][2] or spellInfo[AbilityName][2],
-                displayType = 2,
+                displayType = spellInfo[spellID] and spellInfo[spellID][3] or spellInfo[AbilityName][3],
             }
             if not ActiveControl[spellID] or ActiveControl[spellID] < expirationTime then
                 ActiveControl[spellID] = expirationTime;
@@ -530,6 +470,7 @@ function LossOfControlFrame_Register(self)
     self.TimeLeft.SetShown = LossOfControlFrame_SetShown
 
     C_LossOfControl.ScanEvents = self
+
     function C_LossOfControl.ScanEvents:TriggerEvent(event, ...)
         LossOfControlFrame_OnEvent(self, event, ...)
     end

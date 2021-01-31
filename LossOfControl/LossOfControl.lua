@@ -125,6 +125,7 @@ function LossOfControlFrame_SetUpDisplay(self, animate, data)
 				text = string.format(LOSS_OF_CONTROL_DISPLAY_INTERRUPT_SCHOOL, GetSchoolString(lockoutSchool));
 			end
 		end
+
 		self.AbilityName:SetText(text);
 		-- icon
 		self.Icon:SetTexture(iconTexture);
@@ -174,7 +175,6 @@ function LossOfControlFrame_UpdateDisplay(self)
 		return;
 	end
 	local data = C_LossOfControl.GetActiveLossOfControlData(LOSS_OF_CONTROL_ACTIVE_INDEX);
-
 	if ( data and data.displayText and data.displayType == DISPLAY_TYPE_FULL ) then
 		if ( data.spellID ~= self.spellID or data.startTime ~= self.startTime ) then
 			LossOfControlFrame_SetUpDisplay(self, false, data);
