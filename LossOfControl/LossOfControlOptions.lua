@@ -8,7 +8,7 @@
 --######################################################################
 
 
-local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl", "AceEvent-3.0", "LibSink-2.0")
+local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl")
 _G.LossOfControl = LossOfControl
 
 local AceDB = LibStub("AceDB-3.0")
@@ -51,6 +51,7 @@ LossOfControl.options = {
             type = "select",
             style = "dropdown",
             name = LOC_TYPE_FULL,
+            desc = OPTION_LOSS_OF_CONTROL_FULL,
             get = LOC_OPTION_GET,
             set = LOC_OPTION_SET,
             values = LOC_OPTION_VALUE,
@@ -60,6 +61,7 @@ LossOfControl.options = {
             type = "select",
             style = "dropdown",
             name = LOC_TYPE_SILENCE,
+            desc = OPTION_LOSS_OF_CONTROL_SILENCE,
             get = function()
                 return profileDB[LOC_TYPE_SILENCE]
             end,
@@ -71,6 +73,7 @@ LossOfControl.options = {
             type = "select",
             style = "dropdown",
             name = LOC_TYPE_INTERRUPT,
+            desc = OPTION_LOSS_OF_CONTROL_INTERRUPT,
             get = LOC_OPTION_GET,
             set = LOC_OPTION_SET,
             values = LOC_OPTION_VALUE,
@@ -80,6 +83,7 @@ LossOfControl.options = {
             type = "select",
             style = "dropdown",
             name = LOC_TYPE_DISARM,
+            desc = OPTION_LOSS_OF_CONTROL_DISARM,
             get = LOC_OPTION_GET,
             set = LOC_OPTION_SET,
             values = LOC_OPTION_VALUE,
@@ -89,6 +93,7 @@ LossOfControl.options = {
             type = "select",
             style = "dropdown",
             name = LOC_TYPE_ROOT,
+            desc = OPTION_LOSS_OF_CONTROL_ROOT,
             get = LOC_OPTION_GET,
             set = LOC_OPTION_SET,
             values = LOC_OPTION_VALUE,
@@ -106,7 +111,7 @@ end
 function LossOfControl:OnInitialize()
     self.db = AceDB:New("LossOfControlDB")
     if not self.db then
-		Print("Error: Database not loaded correctly. Please exit out of WoW and delete LossOfControl.lua found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
+        print("Error: Database not loaded correctly. Please exit out of WoW and delete LossOfControl.lua found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
     end
 
     self.db.char.myVal = self.db.char.myVal or LossOfControl.default
@@ -114,7 +119,7 @@ function LossOfControl:OnInitialize()
 
     self:SetupOptions()
     C_LossOfControl:SetDisplay()
- 
+
     SLASH_LossOfControl1  = "/loc"
     SlashCmdList["LossOfControl"] = function()
         InterfaceOptionsFrame_OpenToCategory(LossOfControl.optionsFrames.general)
@@ -125,4 +130,3 @@ end
 function LossOfControl:GetDisplayValue(type)
     return profileDB[type]
 end
-

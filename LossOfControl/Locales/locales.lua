@@ -5,6 +5,12 @@
     LOC_OPTION_FULL = "Все время действия";
     LOC_OPTION_OFF = "Отключено";
 
+    OPTION_LOSS_OF_CONTROL_DISARM = "Когда вас обезоружили: вы не можете использовать способности, требующие наличие оружия.";
+    OPTION_LOSS_OF_CONTROL_FULL = "Когда вы теряете контроль над персонажем вследствие изгнания, подчинения, оглушения, дезориентации, превращения, страха, ужаса, паралича, ошеломления, сна, смерча или сковывания нежити.";
+    OPTION_LOSS_OF_CONTROL_INTERRUPT = "Когда применение вашего заклинания было прервано или когда вам недоступны заклинания определенной школы.";
+    OPTION_LOSS_OF_CONTROL_ROOT = "Когда вы обездвижены: вы не можете передвигаться, но можете применять заклинания и атаковать в ближнем бою.";
+    OPTION_LOSS_OF_CONTROL_SILENCE = "Когда вы испытываете немоту или усмирение, вы не можете применять некоторые из ваших заклинаний.";
+
     LOC_TYPE_DISARM = "Обезоруживание";
     LOC_TYPE_FULL = "Полная потеря";
     LOC_TYPE_INTERRUPT = "Прерывание";
@@ -38,6 +44,12 @@ else
     LOC_OPTION_ALERT = "Only Alert";
     LOC_OPTION_FULL = "Show Full Duration";
     LOC_OPTION_OFF = "Off";
+
+    OPTION_LOSS_OF_CONTROL_DISARM = "When you have been disarmed. Abilities that require a weapon will be disabled.";
+    OPTION_LOSS_OF_CONTROL_FULL = "When you lose full control of your character from Banish, Charm, Stun, Disorient, Polymorph, Fear, Horror, Incapacitate, Sap, Sleep, Cyclone, and Shackle Undead.";
+    OPTION_LOSS_OF_CONTROL_INTERRUPT = "When you have been interrupted. This also shows when you have been locked out of a specific spell school.";
+    OPTION_LOSS_OF_CONTROL_ROOT = "When you have been rooted. You cannot move but can still cast spells and do melee attacks.";
+    OPTION_LOSS_OF_CONTROL_SILENCE = "When you have been silenced or pacified. You cannot cast some of your spells.";
 
     LOC_TYPE_DISARM = "Disarm";
     LOC_TYPE_FULL = "Full";
