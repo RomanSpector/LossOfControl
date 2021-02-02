@@ -342,7 +342,7 @@ end
 function LossOfControl_GetControlID(spellID)
     for i = 1, 255 do
         local id = select(11, UnitAura("player", i, "HARMFUL"))
-        if not spellID then return end
+        if not id then return end
         if spellID == id then
             return true
         end
