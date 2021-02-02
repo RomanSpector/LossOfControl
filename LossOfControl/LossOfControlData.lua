@@ -12,7 +12,7 @@ SOUNDKIT = {
 }
 
 local blacklist = {
-    [72120] = true,   
+    [72120] = true, 
     [70106] = true, 
     [72121] = true, 
     [24134] = true, 
@@ -357,7 +357,11 @@ function LossOfControl_SetControlDataPriority(ControlData)
         end
     end
     table.sort(t, function (a,b)
-            return (a.priority > b.priority)
+            if a.priority == b.priority then
+                return a.expirationTime > b.expirationTime
+            else
+                return (a.priority > b.priority)
+        end
     end)
     return t
 end
