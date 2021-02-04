@@ -76,9 +76,9 @@ function LossOfControlFrame_OnEvent(self, event, ...)
 end
 
 function LossOfControlFrame_OnUpdate(self, elapsed)
-	RaidNotice_UpdateSlot(self.AbilityName, abilityNameTimings, elapsed);
-	RaidNotice_UpdateSlot(self.TimeLeft.NumberText, timeLeftTimings, elapsed);
-	RaidNotice_UpdateSlot(self.TimeLeft.SecondsText, timeLeftTimings, elapsed);
+	RaidNoticeUpdateSlot(self.AbilityName, abilityNameTimings, elapsed);
+	RaidNoticeUpdateSlot(self.TimeLeft.NumberText, timeLeftTimings, elapsed);
+	RaidNoticeUpdateSlot(self.TimeLeft.SecondsText, timeLeftTimings, elapsed);
 	-- handle alert type
 	if (self.fadeTime) then
 		self.fadeTime = self.fadeTime - elapsed;
