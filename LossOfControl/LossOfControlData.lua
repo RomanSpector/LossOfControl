@@ -444,24 +444,6 @@ function LossOfControl_AddControlOrUpdate(lockoutSchool, spellId, spellName)
     end
 end
 
-function RaidNotice_UpdateSlot( slotFrame, timings, elapsedTime )
-    if ( slotFrame.scrollTime ) then
-        slotFrame.scrollTime = slotFrame.scrollTime + elapsedTime;
-        if ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_UP_TIME"] ) then
-            slotFrame:SetTextHeight(floor(timings["RAID_NOTICE_MIN_HEIGHT"]+
-                    ((timings["RAID_NOTICE_MAX_HEIGHT"]-timings["RAID_NOTICE_MIN_HEIGHT"])*slotFrame.scrollTime/timings["RAID_NOTICE_SCALE_UP_TIME"])));   
-        elseif ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_DOWN_TIME"] ) then
-            slotFrame:SetTextHeight(floor(timings["RAID_NOTICE_MAX_HEIGHT"] - ((timings["RAID_NOTICE_MAX_HEIGHT"]-
-                            timings["RAID_NOTICE_MIN_HEIGHT"])*(slotFrame.scrollTime - 
-                            timings["RAID_NOTICE_SCALE_UP_TIME"])/(timings["RAID_NOTICE_SCALE_DOWN_TIME"] - 
-                            timings["RAID_NOTICE_SCALE_UP_TIME"]))));
-        else
-            slotFrame:SetTextHeight(timings["RAID_NOTICE_MIN_HEIGHT"]);
-            slotFrame.scrollTime = nil;
-        end
-    end
-end
-
 function CooldownFrame_Clear(self)
 	self:Hide()
 end
