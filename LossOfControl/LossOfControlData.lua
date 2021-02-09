@@ -8,7 +8,7 @@
 --######################################################################
 
 SOUNDKIT = {
-    UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468",
+    UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468.ogg",
 }
 
 local blacklist = {

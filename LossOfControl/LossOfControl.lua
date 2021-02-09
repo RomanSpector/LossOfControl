@@ -160,7 +160,7 @@ function LossOfControlFrame_SetUpDisplay(self, animate, data)
 			self.TimeLeft.SecondsText.scrollTime = 0;
 			self.Cooldown:Hide();
 			self.Anim:Play();
-			PlaySound(SOUNDKIT.UI_LOSS_OF_CONTROL_START);
+			PlaySoundFile(SOUNDKIT.UI_LOSS_OF_CONTROL_START);
 		end
 		self.priority = priority;
 		self.spellID = spellID;
