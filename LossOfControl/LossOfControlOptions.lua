@@ -8,7 +8,7 @@
 --######################################################################
 
 
-local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl")
+local LossOfControl = LibStub("AceAddon-3.0"):GetAddon("LossOfControl", "AceEvent-3.0")
 _G.LossOfControl = LossOfControl
 
 local AceDB = LibStub("AceDB-3.0")
@@ -26,11 +26,17 @@ end
 
 local LOC_OPTION_SET = function(self, value)
     profileDB[self.option.name] = value
-    C_LossOfControl:SetDisplay()
+    LossOfControl:SetDisplay()
 end
 
 local LOC_OPTION_GET = function(self)
     return profileDB[self.option.name]
+end
+
+local LOC_OPTION_ENABLE = function(self, value)
+    profileDB[self.option.name] = value
+    C_Var.SetCVar("lossOfControl", value)
+    LossOfControl:SendMessage("CVAR_UPDATE", LossOfControlFrame, "LOSS_OF_CONTROL", value and "1" or "0");
 end
 
 LossOfControl.default = {
@@ -42,10 +48,19 @@ LossOfControl.default = {
 }
 
 LossOfControl.options = {
-    name = "Loss Of Control Alerts",
+    name = "",
     handler = LossOfControl,
     type = "group",
     args = {
+        lossOfControl = {
+            order = 0,
+            type = "toggle",
+            name = "Loss Of Control Alerts",
+            desc = OPTION_TOOLTIP_LOSS_OF_CONTROL,
+            get = LOC_OPTION_GET,
+            set = LOC_OPTION_ENABLE,
+            width = "full"
+        },
         full = {
             order = 1,
             type = "select",
@@ -106,6 +121,11 @@ function LossOfControl:SetupOptions()
 
     self.optionsFrames = {}
     self.optionsFrames.general = AceConfigDialog:AddToBlizOptions("LossOfControl", "LossOfControl")
+
+    if enabled then
+    -- fire event
+    end
+
 end
 
 function LossOfControl:OnInitialize()
@@ -118,7 +138,9 @@ function LossOfControl:OnInitialize()
     profileDB = self.db.char.myVal
 
     self:SetupOptions()
-    C_LossOfControl:SetDisplay()
+    LossOfControl:SetDisplay()
+    C_Var.SetCVar("lossOfControl", self.db.char.myVal["Loss Of Control Alerts"])
+    self:SendMessage("VARIABLES_LOADED", LossOfControlFrame);
 
     SLASH_LossOfControl1  = "/loc"
     SlashCmdList["LossOfControl"] = function()
@@ -127,6 +149,34 @@ function LossOfControl:OnInitialize()
 
 end
 
-function LossOfControl:GetDisplayValue(type)
-    return profileDB[type]
+function LossOfControl:GetDisplayValue( controlType )
+    return profileDB[controlType]
+end
+
+local displayType = {
+    [LOSS_OF_CONTROL_DISPLAY_DISARM] = LOC_TYPE_DISARM,
+    [LOSS_OF_CONTROL_DISPLAY_ROOT] = LOC_TYPE_ROOT,
+    [LOSS_OF_CONTROL_DISPLAY_SILENCE] = LOSS_OF_CONTROL_DISPLAY_SILENCE,
+}
+
+function LossOfControl:SetDisplay()
+    for _, spellData in pairs(C_LossOfControl.ControleList) do
+        local controlType = spellData[1]
+        spellData[3] = self:GetDisplayValue(displayType[controlType] or LOC_TYPE_FULL)
+    end
+end
+
+C_Var = {}
+C_Var.config = {}
+
+function C_Var.GetCVarBool(name)
+    return C_Var.config[name]
+end
+
+function C_Var.SetCVar(eventName, value)
+	if type(value) == "boolean" then
+        C_Var.config[eventName] = value and "1" or "0"
+	else
+        C_Var.config[eventName] = value and tostring(value) or nil
+	end
 end

@@ -35,16 +35,14 @@ local DISPLAY_TYPE_NONE = 0
 LOSS_OF_CONTROL_ACTIVE_INDEX = 1
 
 function LossOfControlFrame_OnLoad(self)
-	self:RegisterEvent("UNIT_AURA")
-	self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+	self:RegisterMessage("CVAR_UPDATE", LossOfControlFrame_OnEvent);
+	self:RegisterMessage("VARIABLES_LOADED", LossOfControlFrame_OnEvent);
 	-- figure out some string widths - our base width is for under 10 seconds which should be almost all loss of control durations
 	self.TimeLeft.baseNumberWidth = self.TimeLeft.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET
 	self.TimeLeft.secondsWidth = self.TimeLeft.SecondsText:GetStringWidth()
-
-	LossOfControlFrame_Register(self)
 end
 
-function LossOfControlFrame_OnEvent(self, event, ...)
+function LossOfControlFrame_OnEvent(event, self, ...)
     if ( event == "LOSS_OF_CONTROL_UPDATE" ) then
 		LossOfControlFrame_UpdateDisplay(self, false); -- false? KEKW
 	elseif ( event == "LOSS_OF_CONTROL_ADDED" and ... ) then
@@ -52,6 +50,7 @@ function LossOfControlFrame_OnEvent(self, event, ...)
         local data = C_LossOfControl.GetActiveLossOfControlData(eventIndex);
         local timeRemaining = data.timeRemaining;
 		local priority = data.priority;
+
 		if ( data.displayType == DISPLAY_TYPE_ALERT ) then
 			-- only display an alert type if there's nothing up or it has higher priority. If same priority, it needs to have longer time remaining
 			if ( not self:IsShown() or priority > self.priority
@@ -65,14 +64,24 @@ function LossOfControlFrame_OnEvent(self, event, ...)
 			self.fadeTime = nil;
 			LossOfControlFrame_SetUpDisplay(self, true);
 		end
-	elseif event == "UNIT_AURA" and ... == "player" then
-			LossOfControl_AddControlOrUpdate()
-	elseif ( event == "COMBAT_LOG_EVENT_UNFILTERED" and ... ) then
-		local _, subEvent, _, _, _, _, destName, _, spellID, _, _, _, spellName, lockoutSchool = ...
-		if ( subEvent == "SPELL_INTERRUPT" and destName == UnitName("player") ) then
-			LossOfControl_AddControlOrUpdate(lockoutSchool, spellID, spellName) -- check lockout shchool
+	elseif ( event == "CVAR_UPDATE" ) then
+		local cvar, value = ...;
+		if ( cvar == "LOSS_OF_CONTROL" ) then
+			if ( value == "1" ) then
+				self:RegisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
+				self:RegisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+			else
+				self:UnregisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
+				self:UnregisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+				self:Hide();
+			end
 		end
-    end
+	elseif ( event == "VARIABLES_LOADED" ) then
+		if ( C_Var.GetCVarBool("lossOfControl") ) then
+			self:RegisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
+			self:RegisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+		end
+	end
 end
 
 function LossOfControlFrame_OnUpdate(self, elapsed)
@@ -203,3 +212,4 @@ function LossOfControlTimeLeftFrame_SetTime(self, timeRemaining)
 		self.numberWidth = 0
 	end
 end
+

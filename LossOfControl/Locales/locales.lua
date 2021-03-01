@@ -5,6 +5,7 @@
     LOC_OPTION_FULL = "Все время действия";
     LOC_OPTION_OFF = "Отключено";
 
+    OPTION_TOOLTIP_LOSS_OF_CONTROL = "Показывать предупреждения в центре экрана о потере контроля над вашим персонажем.";
     OPTION_LOSS_OF_CONTROL_DISARM = "Когда вас обезоружили: вы не можете использовать способности, требующие наличие оружия.";
     OPTION_LOSS_OF_CONTROL_FULL = "Когда вы теряете контроль над персонажем вследствие изгнания, подчинения, оглушения, дезориентации, превращения, страха, ужаса, паралича, ошеломления, сна, смерча или сковывания нежити.";
     OPTION_LOSS_OF_CONTROL_INTERRUPT = "Когда применение вашего заклинания было прервано или когда вам недоступны заклинания определенной школы.";
@@ -44,7 +45,7 @@ else
     LOC_OPTION_ALERT = "Only Alert";
     LOC_OPTION_FULL = "Show Full Duration";
     LOC_OPTION_OFF = "Off";
-
+    OPTION_TOOLTIP_LOSS_OF_CONTROL = "Shows an alert in the middle of the screen when you lose control of your character.";
     OPTION_LOSS_OF_CONTROL_DISARM = "When you have been disarmed. Abilities that require a weapon will be disabled.";
     OPTION_LOSS_OF_CONTROL_FULL = "When you lose full control of your character from Banish, Charm, Stun, Disorient, Polymorph, Fear, Horror, Incapacitate, Sap, Sleep, Cyclone, and Shackle Undead.";
     OPTION_LOSS_OF_CONTROL_INTERRUPT = "When you have been interrupted. This also shows when you have been locked out of a specific spell school.";
