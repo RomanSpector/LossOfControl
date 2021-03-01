@@ -99,7 +99,7 @@ LossOfControl.options = {
             style = "dropdown",
             name = LOC_TYPE_DISARM,
             desc = OPTION_LOSS_OF_CONTROL_DISARM,
-            get = LOC_OPTION_GET,
+            get = LOC_OPTION_GET, 
             set = LOC_OPTION_SET,
             values = LOC_OPTION_VALUE,
         },
@@ -118,14 +118,8 @@ LossOfControl.options = {
 
 function LossOfControl:SetupOptions()
     AceConfig:RegisterOptionsTable("LossOfControl", self.options, {SLASH_LossOfControl1})
-
     self.optionsFrames = {}
     self.optionsFrames.general = AceConfigDialog:AddToBlizOptions("LossOfControl", "LossOfControl")
-
-    if enabled then
-    -- fire event
-    end
-
 end
 
 function LossOfControl:OnInitialize()
