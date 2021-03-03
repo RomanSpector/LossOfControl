@@ -13,7 +13,7 @@
 	<!--@end-no-lib-strip@-->
 	<Script file="Locales\locales.lua"/>
 	<Script file="C_LossOfControl.lua"/>
-	<Script file="LossOfControlData.lua"/>
+	<Script file="LossOfControlMixin.lua"/>
 	<Script file="LossOfControl.lua"/>
 	<Script file="LossOfControlOptions.lua"/>
 

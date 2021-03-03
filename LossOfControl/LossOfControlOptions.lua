@@ -7,13 +7,13 @@
 ------------------------------------------------------------------------
 --######################################################################
 
-
 local LossOfControl = LibStub("AceAddon-3.0"):GetAddon("LossOfControl", "AceEvent-3.0")
 _G.LossOfControl = LossOfControl
 
 local AceDB = LibStub("AceDB-3.0")
 local AceConfig = LibStub("AceConfig-3.0")
 local AceConfigDialog = LibStub("AceConfigDialog-3.0")
+local lossOfControl = "Loss Of Control Alerts"
 local profileDB
 
 local LOC_OPTION_VALUE = function()
@@ -24,22 +24,34 @@ local LOC_OPTION_VALUE = function()
     }
 end
 
-local LOC_OPTION_SET = function(self, value)
+local function SetOptionValue(self, value)
     profileDB[self.option.name] = value
     LossOfControl:SetDisplay()
 end
 
-local LOC_OPTION_GET = function(self)
+local function GetOptionValue(self)
     return profileDB[self.option.name]
 end
 
-local LOC_OPTION_ENABLE = function(self, value)
+local function SetOptionEnable(self, value)
+
+    for _, state in pairs(self.options.args) do
+        if state.disabled ~= nil then
+            state.disabled = not value
+        end
+    end
+
     profileDB[self.option.name] = value
     C_Var.SetCVar("lossOfControl", value)
     LossOfControl:SendMessage("CVAR_UPDATE", LossOfControlFrame, "LOSS_OF_CONTROL", value and "1" or "0");
 end
 
+local function IsOptionEnable()
+    return profileDB[lossOfControl]
+end
+
 LossOfControl.default = {
+    [lossOfControl] = true,
     [LOC_TYPE_FULL] = 2,
     [LOC_TYPE_SILENCE] = 2,
     [LOC_TYPE_INTERRUPT] = 2,
@@ -55,10 +67,10 @@ LossOfControl.options = {
         lossOfControl = {
             order = 0,
             type = "toggle",
-            name = "Loss Of Control Alerts",
+            name = lossOfControl,
             desc = OPTION_TOOLTIP_LOSS_OF_CONTROL,
-            get = LOC_OPTION_GET,
-            set = LOC_OPTION_ENABLE,
+            get = GetOptionValue,
+            set = SetOptionEnable,
             width = "full"
         },
         full = {
@@ -67,9 +79,10 @@ LossOfControl.options = {
             style = "dropdown",
             name = LOC_TYPE_FULL,
             desc = OPTION_LOSS_OF_CONTROL_FULL,
-            get = LOC_OPTION_GET,
-            set = LOC_OPTION_SET,
+            get = GetOptionValue,
+            set = SetOptionValue,
             values = LOC_OPTION_VALUE,
+            disabled = not IsOptionEnable,
         },
         Silence = {
             order = 2,
@@ -80,8 +93,9 @@ LossOfControl.options = {
             get = function()
                 return profileDB[LOC_TYPE_SILENCE]
             end,
-            set = LOC_OPTION_SET,
+            set = SetOptionValue,
             values = LOC_OPTION_VALUE,
+            disabled = not IsOptionEnable,
         },
         Interrupt = {
             order = 3,
@@ -89,9 +103,10 @@ LossOfControl.options = {
             style = "dropdown",
             name = LOC_TYPE_INTERRUPT,
             desc = OPTION_LOSS_OF_CONTROL_INTERRUPT,
-            get = LOC_OPTION_GET,
-            set = LOC_OPTION_SET,
+            get = GetOptionValue,
+            set = SetOptionValue,
             values = LOC_OPTION_VALUE,
+            disabled = not IsOptionEnable,
         },
         Disarm = {
             order = 4,
@@ -99,9 +114,10 @@ LossOfControl.options = {
             style = "dropdown",
             name = LOC_TYPE_DISARM,
             desc = OPTION_LOSS_OF_CONTROL_DISARM,
-            get = LOC_OPTION_GET, 
-            set = LOC_OPTION_SET,
+            get = GetOptionValue,
+            set = SetOptionValue,
             values = LOC_OPTION_VALUE,
+            disabled = not IsOptionEnable,
         },
         Root = {
             order = 5,
@@ -109,36 +125,34 @@ LossOfControl.options = {
             style = "dropdown",
             name = LOC_TYPE_ROOT,
             desc = OPTION_LOSS_OF_CONTROL_ROOT,
-            get = LOC_OPTION_GET,
-            set = LOC_OPTION_SET,
+            get = GetOptionValue,
+            set = SetOptionValue,
             values = LOC_OPTION_VALUE,
+            disabled = not IsOptionEnable,
         },
     },
 }
 
 function LossOfControl:SetupOptions()
     AceConfig:RegisterOptionsTable("LossOfControl", self.options, {SLASH_LossOfControl1})
+
     self.optionsFrames = {}
     self.optionsFrames.general = AceConfigDialog:AddToBlizOptions("LossOfControl", "LossOfControl")
 end
 
 function LossOfControl:OnInitialize()
     self.db = AceDB:New("LossOfControlDB")
-    if not self.db then
-        print("Error: Database not loaded correctly. Please exit out of WoW and delete LossOfControl.lua found in: \\World of Warcraft\\WTF\\Account\\<Account Name>>\\SavedVariables\\")
-    end
-
-    self.db.char.myVal = self.db.char.myVal or LossOfControl.default
+    self.db.char.myVal = self.db.char.myVal or self.default
     profileDB = self.db.char.myVal
 
     self:SetupOptions()
-    LossOfControl:SetDisplay()
+    self:SetDisplay()
     C_Var.SetCVar("lossOfControl", self.db.char.myVal["Loss Of Control Alerts"])
     self:SendMessage("VARIABLES_LOADED", LossOfControlFrame);
 
     SLASH_LossOfControl1  = "/loc"
     SlashCmdList["LossOfControl"] = function()
-        InterfaceOptionsFrame_OpenToCategory(LossOfControl.optionsFrames.general)
+        InterfaceOptionsFrame_OpenToCategory(self.optionsFrames.general)
     end
 
 end
