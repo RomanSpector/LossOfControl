@@ -8,7 +8,6 @@
 --######################################################################
 
 local LossOfControl = LibStub("AceAddon-3.0"):GetAddon("LossOfControl", "AceEvent-3.0")
-_G.LossOfControl = LossOfControl
 
 local AceDB = LibStub("AceDB-3.0")
 local AceConfig = LibStub("AceConfig-3.0")

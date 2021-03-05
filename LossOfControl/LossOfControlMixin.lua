@@ -8,6 +8,7 @@
 --######################################################################
 
 local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl", "AceEvent-3.0")
+_G.LossOfControl = LossOfControl
 LossOfControl.timer = LibStub("AceTimer-3.0")
 local LossOfControl_AddControlOrUpdate, LossOfControl_AddInterruptControl, LossOfControl_Hide
 
@@ -83,7 +84,9 @@ local lockoutChannel = {
     [GetSpellInfo(48447)] = GetSpellInfo(50763),
 }
 
-function RaidNoticeUpdateSlot( slotFrame, timings, elapsedTime )
+
+
+function RaidNotice_UpdateSlots( slotFrame, timings, elapsedTime, hasFading  )
 	if ( slotFrame.scrollTime ) then
 		slotFrame.scrollTime = slotFrame.scrollTime + elapsedTime;
 		if ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_UP_TIME"] ) then
@@ -99,10 +102,13 @@ function RaidNoticeUpdateSlot( slotFrame, timings, elapsedTime )
 			slotFrame.scrollTime = nil;
 		end
 	end
+    if ( hasFading ) then
+		FadingFrame_OnUpdate(slotFrame);
+	end
 end
 
 function CooldownFrame_Clear(self)
-	self:Hide()
+	self:Clear();
 end
 
 -------------------------------------------------------------
@@ -285,6 +291,14 @@ function LossOfContolrMixin:ScanEvents(Fields)
     C_LossOfControl.ControlData = self:SetControlDataPriority(C_LossOfControl.ControlData) -- сразу сортируем, т.к. от индекса толку никакого
     local index = C_LossOfControl.GetActiveLossOfControlDataCount()
     self:SendMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame, index)
+end
+
+function LossOfContolrMixin:RegisterEvents(event)
+    self:RegisterMessage(event, LossOfControlFrame_OnEvent)
+end
+
+function LossOfContolrMixin:UnRegisterEvents(event)
+    self:UnregisterMessage(event, LossOfControlFrame_OnEvent)
 end
 
 function LossOfControl_AddInterruptControl(event, ...)

@@ -35,8 +35,8 @@ local DISPLAY_TYPE_NONE = 0
 LOSS_OF_CONTROL_ACTIVE_INDEX = 1
 
 function LossOfControlFrame_OnLoad(self)
-	self:RegisterMessage("CVAR_UPDATE", LossOfControlFrame_OnEvent);
-	self:RegisterMessage("VARIABLES_LOADED", LossOfControlFrame_OnEvent);
+	self:RegisterEvents("CVAR_UPDATE");
+	self:RegisterEvents("VARIABLES_LOADED");
 	-- figure out some string widths - our base width is for under 10 seconds which should be almost all loss of control durations
 	self.TimeLeft.baseNumberWidth = self.TimeLeft.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET
 	self.TimeLeft.secondsWidth = self.TimeLeft.SecondsText:GetStringWidth()
@@ -68,26 +68,26 @@ function LossOfControlFrame_OnEvent(event, self, ...)
 		local cvar, value = ...;
 		if ( cvar == "LOSS_OF_CONTROL" ) then
 			if ( value == "1" ) then
-				self:RegisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
-				self:RegisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+				self:RegisterEvents("LOSS_OF_CONTROL_UPDATE");
+				self:RegisterEvents("LOSS_OF_CONTROL_ADDED");
 			else
-				self:UnregisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
-				self:UnregisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+				self:UnRegisterEvents("LOSS_OF_CONTROL_UPDATE");
+				self:UnRegisterEvents("LOSS_OF_CONTROL_ADDED");
 				self:Hide();
 			end
 		end
 	elseif ( event == "VARIABLES_LOADED" ) then
 		if ( C_Var.GetCVarBool("lossOfControl") ) then
-			self:RegisterMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame_OnEvent);
-			self:RegisterMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame_OnEvent);
+			self:RegisterEvents("LOSS_OF_CONTROL_UPDATE");
+			self:RegisterEvents("LOSS_OF_CONTROL_ADDED");
 		end
 	end
 end
 
 function LossOfControlFrame_OnUpdate(self, elapsed)
-	RaidNoticeUpdateSlot(self.AbilityName, abilityNameTimings, elapsed);
-	RaidNoticeUpdateSlot(self.TimeLeft.NumberText, timeLeftTimings, elapsed);
-	RaidNoticeUpdateSlot(self.TimeLeft.SecondsText, timeLeftTimings, elapsed);
+	RaidNotice_UpdateSlots(self.AbilityName, abilityNameTimings, elapsed);
+	RaidNotice_UpdateSlots(self.TimeLeft.NumberText, timeLeftTimings, elapsed);
+	RaidNotice_UpdateSlots(self.TimeLeft.SecondsText, timeLeftTimings, elapsed);
 	-- handle alert type
 	if (self.fadeTime) then
 		self.fadeTime = self.fadeTime - elapsed;
