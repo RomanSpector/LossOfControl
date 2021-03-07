@@ -108,7 +108,7 @@ function RaidNotice_UpdateSlots( slotFrame, timings, elapsedTime, hasFading  )
 end
 
 function CooldownFrame_Clear(self)
-	self:Clear();
+	self:Hide();
 end
 
 -------------------------------------------------------------
