@@ -168,9 +168,9 @@ function LossOfContolrMixin:Added()
         local AbilityName, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL")
         if (not AbilityName) or blacklist[spellID] then break end
 
-        if C_LossOfControl.ControleList[spellID]
-        or C_LossOfControl.ControleList[AbilityName] then
-            local spellInfo = C_LossOfControl.ControleList;
+        if C_LossOfControl.ControlList[spellID]
+        or C_LossOfControl.ControlList[AbilityName] then
+            local spellInfo = C_LossOfControl.ControlList;
             local Fields = {
                 locType = locType,
                 spellID = spellID,

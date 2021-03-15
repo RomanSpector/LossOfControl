@@ -167,7 +167,7 @@ local displayType = {
 }
 
 function LossOfControl:SetDisplay()
-    for _, spellData in pairs(C_LossOfControl.ControleList) do
+    for _, spellData in pairs(C_LossOfControl.ControlList) do
         local controlType = spellData[1]
         spellData[3] = self:GetDisplayValue(displayType[controlType] or LOC_TYPE_FULL)
     end

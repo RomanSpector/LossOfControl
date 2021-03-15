@@ -1,5 +1,5 @@
 C_LossOfControl = {}
-C_LossOfControl.ControleList = {
+C_LossOfControl.ControlList = {
     -- Spell        ID             Type      priority 
     [GetSpellInfo(12826)] = {LOSS_OF_CONTROL_DISPLAY_POLYMORPH, 6}, -- Sheep
     [GetSpellInfo(51514)] = {LOSS_OF_CONTROL_DISPLAY_POLYMORPH, 6}, -- Hex
