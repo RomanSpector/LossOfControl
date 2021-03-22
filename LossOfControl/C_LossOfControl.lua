@@ -168,6 +168,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(35011)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Knockdown
     [GetSpellInfo(58154)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Hammer of Injustice    
     [GetSpellInfo(51491)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Unrelenting Strike
+    [GetSpellInfo(21749)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Thorn Volley
 
     [GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Pin
     [GetSpellInfo(47698)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Crystal Chains
