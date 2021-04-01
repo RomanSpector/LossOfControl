@@ -60,6 +60,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(16798)] = {LOSS_OF_CONTROL_DISPLAY_SLEEP, 6}, -- Enchanting Lullaby
     [GetSpellInfo(7967)]  = {LOSS_OF_CONTROL_DISPLAY_SLEEP, 6}, -- Naralex's Nightmare
     [GetSpellInfo(29679)] = {LOSS_OF_CONTROL_DISPLAY_SLEEP, 6}, -- Bad Poetry
+    [GetSpellInfo(8040)]  = {LOSS_OF_CONTROL_DISPLAY_SLEEP, 6}, -- Druid's Slumber
 
     [64044]               = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}, -- Psychic Horror
     [74384]               = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}, -- Intimidating Roar
@@ -92,7 +93,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(53588)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Nether Shock
     [GetSpellInfo(1330)]  = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Garrote
     [GetSpellInfo(25046)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Arcane Torrent
-    [GetSpellInfo(15487)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Silence  
+    [GetSpellInfo(15487)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Silence
     [GetSpellInfo(34490)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Silencing Shot
     [GetSpellInfo(18425)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Improved Kick
     [GetSpellInfo(18469)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Improved Counterspell
@@ -102,6 +103,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(18498)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Gag Order
     [GetSpellInfo(19821)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Arcane Bomb
     [GetSpellInfo(55663)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Deafening Roar
+    [GetSpellInfo(6726)]  = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Silence
 
     [GetSpellInfo(53543)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Snatch
     [GetSpellInfo(51722)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Dismantle
