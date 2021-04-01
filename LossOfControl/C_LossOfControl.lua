@@ -16,7 +16,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(710)]   = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Banish
     [GetSpellInfo(30940)] = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Burning Nova
     [GetSpellInfo(70645)] = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Chains of Shadow
-    
+
     [GetSpellInfo(6358)]  = {LOSS_OF_CONTROL_DISPLAY_CHARM, 6}, -- Seducation
 
     [GetSpellInfo(605)]   = {LOSS_OF_CONTROL_DISPLAY_POSSESS, 6}, -- Mind Control
