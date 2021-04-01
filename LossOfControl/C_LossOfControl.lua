@@ -1,4 +1,4 @@
-C_LossOfControl = {}
+C_LossOfControl = C_LossOfControl or {};
 C_LossOfControl.ControlList = {
     -- Spell        ID             Type      priority 
     [GetSpellInfo(12826)] = {LOSS_OF_CONTROL_DISPLAY_POLYMORPH, 6}, -- Sheep
@@ -16,12 +16,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(710)]   = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Banish
     [GetSpellInfo(30940)] = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Burning Nova
     [GetSpellInfo(70645)] = {LOSS_OF_CONTROL_DISPLAY_BANISH, 5}, -- Chains of Shadow
-    --[[
-    [GetSpellInfo(1604)]  = {LOSS_OF_CONTROL_DISPLAY_DAZE, 2}, -- Dazed
-    [GetSpellInfo(42945)] = {LOSS_OF_CONTROL_DISPLAY_DAZE, 2}, -- Blast Wave
-    [GetSpellInfo(53227)] = {LOSS_OF_CONTROL_DISPLAY_DAZE, 2}, -- Typhoon
-    [GetSpellInfo(51585)] = {LOSS_OF_CONTROL_DISPLAY_DAZE, 2}, -- Blade Twisting
-    ]]
+    
     [GetSpellInfo(6358)]  = {LOSS_OF_CONTROL_DISPLAY_CHARM, 6}, -- Seducation
 
     [GetSpellInfo(605)]   = {LOSS_OF_CONTROL_DISPLAY_POSSESS, 6}, -- Mind Control
@@ -197,17 +192,20 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(13099)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Net-o-MaticК
     [GetSpellInfo(52491)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Web Explosion
     [GetSpellInfo(56632)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Tangled Webs
-}
+};
 
-C_LossOfControl.ControlData = {} -- Таблица со всем активным контролем на нас
+C_LossOfControl.ControlData = {}; -- Таблица со всем активным контролем на нас
 
 C_LossOfControl.GetActiveLossOfControlDataCount = function()
-    return 1 -- #C_LossOfControl.ControlData нахуй это вообще нужно, если всегда единицу возвращает?
+    return 1; -- #C_LossOfControl.ControlData нахуй это вообще нужно, если всегда единицу возвращает?
 end
 
 C_LossOfControl.GetActiveLossOfControlData = function(eventIndex)
     local data = C_LossOfControl.ControlData[eventIndex]
-    if not data then return nil end
-    data.timeRemaining = data.expirationTime and data.expirationTime - GetTime() or nil
-    return data
+    if ( not data ) then
+        return;
+    end
+
+    data.timeRemaining = data.expirationTime and data.expirationTime - GetTime() or nil;
+    return data;
 end

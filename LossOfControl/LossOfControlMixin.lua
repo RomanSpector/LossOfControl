@@ -7,14 +7,14 @@
 ------------------------------------------------------------------------
 --######################################################################
 
-local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl", "AceEvent-3.0")
-_G.LossOfControl = LossOfControl
-LossOfControl.timer = LibStub("AceTimer-3.0")
-local LossOfControl_AddControlOrUpdate, LossOfControl_AddInterruptControl, LossOfControl_Hide
+local LossOfControl = LibStub("AceAddon-3.0"):NewAddon("LossOfControl", "AceEvent-3.0");
+_G.LossOfControl = LossOfControl;
+LossOfControl.timer = LibStub("AceTimer-3.0");
+local LossOfControl_AddControlOrUpdate, LossOfControl_AddInterruptControl, LossOfControl_Hide;
 
 SOUNDKIT = {
     UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468.ogg",
-}
+};
 
 local blacklist = {
     [72120] = true,   
@@ -27,7 +27,7 @@ local blacklist = {
     [49010] = true,  
     -- [spellID] = true,
     -- [spellID] = true,
-}
+};
 
 local SpellSchoolString = {
     [0x1]  = STRING_SCHOOL_PHYSICAL,
@@ -64,11 +64,11 @@ local SpellSchoolString = {
     [0x7C] = STRING_SCHOOL_CHROMATIC,
     [0x7E] = STRING_SCHOOL_MAGIC,
     [0x7F] = STRING_SCHOOL_CHAOS,
-}
+};
 
 function GetSchoolString(lockoutSchool)
     if ( SpellSchoolString[lockoutSchool] ) then
-        return SpellSchoolString[lockoutSchool]
+        return SpellSchoolString[lockoutSchool];
     end
 end
 
@@ -82,9 +82,7 @@ local lockoutChannel = {
     [GetSpellInfo(64843)] = GetSpellInfo(48071),
     --
     [GetSpellInfo(48447)] = GetSpellInfo(50763),
-}
-
-
+};
 
 function RaidNotice_UpdateSlots( slotFrame, timings, elapsedTime, hasFading  )
 	if ( slotFrame.scrollTime ) then
@@ -114,8 +112,8 @@ end
 -------------------------------------------------------------
 
 -------------------------------------------------------------
-LossOfControlAnimGroupMixin = {}
-LossOfControlAnimGroupMixin.AnimationGroup = {}
+LossOfControlAnimGroupMixin = {};
+LossOfControlAnimGroupMixin.AnimationGroup = {};
 
 function LossOfControlAnimGroupMixin:Mixin(...)
 	for i = 1, select("#", ...) do
@@ -126,47 +124,49 @@ end
 
 function LossOfControlAnimGroupMixin:Play()
     for _, childKey in pairs(self.AnimationGroup) do
-        childKey:Play()
+        childKey:Play();
     end
 end
 
 function LossOfControlAnimGroupMixin:Stop()
     for _, childKey in pairs(self.AnimationGroup) do
-        childKey:Stop()
+        childKey:Stop();
     end
 end
 
 function LossOfControlAnimGroupMixin:IsPlaying()
     for _, childKey in pairs(self.AnimationGroup) do
-        return childKey:IsPlaying()
+        return childKey:IsPlaying();
     end
 end
 
-LossOfContolrMixin = LossOfControl
-LossOfContolrMixin.ActiveControl = {}
+LossOfContolrMixin = LossOfControl;
+LossOfContolrMixin.ActiveControl = {};
 
 function LossOfContolrMixin:OnLoad()
-    self:RegisterEvent("UNIT_AURA", LossOfControl_AddControlOrUpdate)
-    self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED", LossOfControl_AddInterruptControl)
-    self:RegisterEvent("PLAYER_ENTERING_WORLD", LossOfControl_Hide)
+    self:RegisterEvent("UNIT_AURA", LossOfControl_AddControlOrUpdate);
+    self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED", LossOfControl_AddInterruptControl);
+    self:RegisterEvent("PLAYER_ENTERING_WORLD", LossOfControl_Hide);
 
-    self.Anim = LossOfControlAnimGroupMixin
+    self.Anim = LossOfControlAnimGroupMixin;
 end
 
 function LossOfContolrMixin:SetShown(value)
-    if value then 
-        self:Show()
+    if value then
+        self:Show();
     else
-         self:Hide()
+         self:Hide();
     end
 end
 
 function LossOfContolrMixin:Added()
-    local update = false
+    local update = false;
 
     for i = 1, 255 do
-        local AbilityName, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL")
-        if (not AbilityName) or blacklist[spellID] then break end
+        local AbilityName, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL");
+        if ( not AbilityName or blacklist[spellID] ) then
+            break;
+        end
 
         if C_LossOfControl.ControlList[spellID]
         or C_LossOfControl.ControlList[AbilityName] then
@@ -193,11 +193,11 @@ function LossOfContolrMixin:Added()
 
     end
 
-    return update
+    return update;
 end
 
 function LossOfContolrMixin:Update()
-    local update = false
+    local update = false;
 
     for index, controlData in pairs(C_LossOfControl.ControlData) do
         if not self:GetControlID(controlData.spellID)
@@ -206,15 +206,15 @@ function LossOfContolrMixin:Update()
             C_LossOfControl.ControlData[index] = nil;
             C_LossOfControl.ControlData = self:SetControlDataPriority(C_LossOfControl.ControlData);
             self:SendMessage("LOSS_OF_CONTROL_UPDATE", LossOfControlFrame);
-            update = true
+            update = true;
         end
-    end 
+    end
 
-    return update
+    return update;
 end
 
 function LossOfContolrMixin:AddInterruptControl(event, ...)
-    local _, subEvent, _, _, _, _, destName, _, spellID, _, _, _, spellName, lockoutSchool = ...
+    local _, subEvent, _, _, _, _, destName, _, spellID, _, _, _, spellName, lockoutSchool = ...;
 
     if ( subEvent == "SPELL_INTERRUPT" and destName == UnitName("player") ) then
         if lockoutSchool then
@@ -263,70 +263,78 @@ function LossOfContolrMixin:SetControlDataPriority(ControlData)
     local t = {}
     for _, data in pairs(ControlData) do
         if data and data.priority then
-            t[#t + 1] = data
+            t[#t + 1] = data;
         end
     end
+
     table.sort(t, function (a,b)
-            if a.priority == b.priority then
-                return a.expirationTime > b.expirationTime
-            else
-                return (a.priority > b.priority)
+        if a.priority == b.priority then
+            return a.expirationTime > b.expirationTime;
+        else
+            return (a.priority > b.priority);
         end
     end)
+
     return t
 end
 
 function LossOfContolrMixin:GetControlID(spellID)
     for i = 1, 255 do
-        local id = select(11, UnitAura("player", i, "HARMFUL"))
-        if not id then return end
-        if spellID == id then
-            return true
+        local debuffID = select(11, UnitAura("player", i, "HARMFUL"));
+        if ( not debuffID ) then
+            return;
+        end
+
+        if ( spellID == debuffID ) then
+            return true;
         end
     end
 end
 
 function LossOfContolrMixin:ScanEvents(Fields)
-    tinsert(C_LossOfControl.ControlData, Fields)
-    C_LossOfControl.ControlData = self:SetControlDataPriority(C_LossOfControl.ControlData) -- сразу сортируем, т.к. от индекса толку никакого
-    local index = C_LossOfControl.GetActiveLossOfControlDataCount()
-    self:SendMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame, index)
+    tinsert(C_LossOfControl.ControlData, Fields);
+    C_LossOfControl.ControlData = self:SetControlDataPriority(C_LossOfControl.ControlData); -- сразу сортируем, т.к. от индекса толку никакого
+    local index = C_LossOfControl.GetActiveLossOfControlDataCount();
+    self:SendMessage("LOSS_OF_CONTROL_ADDED", LossOfControlFrame, index);
 end
 
 function LossOfContolrMixin:RegisterEvents(event)
-    self:RegisterMessage(event, LossOfControlFrame_OnEvent)
+    self:RegisterMessage(event, LossOfControlFrame_OnEvent);
 end
 
 function LossOfContolrMixin:UnRegisterEvents(event)
-    self:UnregisterMessage(event, LossOfControlFrame_OnEvent)
+    self:UnregisterMessage(event, LossOfControlFrame_OnEvent);
 end
 
 function LossOfControl_AddInterruptControl(event, ...)
-    if event and ... then
-        LossOfContolrMixin:AddInterruptControl(event, ...)
+    if ( event and ... ) then
+        LossOfContolrMixin:AddInterruptControl(event, ...);
     end
 end
 
 function LossOfControl_AddControlOrUpdate(event, unit)
-    if not ( unit == "player" ) then return end 
-    return LossOfContolrMixin:Update() or LossOfContolrMixin:Added()
+    if not ( unit == "player" ) then;
+        return;
+    end
+
+    return LossOfContolrMixin:Update() or LossOfContolrMixin:Added();
 end
 
-function LossOfControl_Hide()   
+function LossOfControl_Hide()
     if LossOfControlFrame and LossOfControlFrame:IsShown() then
-        LossOfControlFrame:Hide()
-        LossOfContolrMixin.ActiveControl = {}
-        C_LossOfControl.ControlData = {}
+        LossOfControlFrame:Hide();
+        LossOfContolrMixin.ActiveControl = {};
+        C_LossOfControl.ControlData = {};
     end
 end
 
-TimeLeftMixin = {}
+TimeLeftMixin = {};
 
 function TimeLeftMixin:SetShown(value)
-    if value then 
-        self:Show()
+    if value then
+        self:Show();
     else
-         self:Hide()
+         self:Hide();
     end
 end
 
@@ -341,7 +349,7 @@ function Mixin(object, ...)
 end
 -- where ​... are the mixins to mixin
 function CreateFromMixins(...)
-	return Mixin({}, ...)
+	return Mixin({}, ...);
 end
 
 function CreateAndInitFromMixin(mixin, ...)

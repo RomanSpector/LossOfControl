@@ -19,27 +19,27 @@ local timeLeftTimings = {
 	["RAID_NOTICE_MAX_HEIGHT"] = 28.0,
 	["RAID_NOTICE_SCALE_UP_TIME"] = 0.1,
 	["RAID_NOTICE_SCALE_DOWN_TIME"] = 0.2,
-}
+};
 
 local TEXT_OVERRIDE = {
 	[33786] = LOSS_OF_CONTROL_DISPLAY_CYCLONE,
-}
+};
 
-local TIME_LEFT_FRAME_WIDTH = 200
-LOSS_OF_CONTROL_TIME_OFFSET = 6
+local TIME_LEFT_FRAME_WIDTH = 200;
+LOSS_OF_CONTROL_TIME_OFFSET = 6;
 
-local DISPLAY_TYPE_FULL = 2
-local DISPLAY_TYPE_ALERT = 1
-local DISPLAY_TYPE_NONE = 0
+local DISPLAY_TYPE_FULL = 2;
+local DISPLAY_TYPE_ALERT = 1;
+local DISPLAY_TYPE_NONE = 0;
 
-LOSS_OF_CONTROL_ACTIVE_INDEX = 1
+LOSS_OF_CONTROL_ACTIVE_INDEX = 1;
 
 function LossOfControlFrame_OnLoad(self)
 	self:RegisterEvents("CVAR_UPDATE");
 	self:RegisterEvents("VARIABLES_LOADED");
 	-- figure out some string widths - our base width is for under 10 seconds which should be almost all loss of control durations
-	self.TimeLeft.baseNumberWidth = self.TimeLeft.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET
-	self.TimeLeft.secondsWidth = self.TimeLeft.SecondsText:GetStringWidth()
+	self.TimeLeft.baseNumberWidth = self.TimeLeft.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET;
+	self.TimeLeft.secondsWidth = self.TimeLeft.SecondsText:GetStringWidth();
 end
 
 function LossOfControlFrame_OnEvent(event, self, ...)
@@ -200,16 +200,16 @@ end
 function LossOfControlTimeLeftFrame_SetTime(self, timeRemaining)
 	if ( timeRemaining ) then
 		if ( timeRemaining >= 10 ) then
-			self.NumberText:SetFormattedText("%d", timeRemaining)
+			self.NumberText:SetFormattedText("%d", timeRemaining);
 		elseif (timeRemaining < 9.95) then -- From 9.95 to 9.99 it will print 10.0 instead of 9.9
-			self.NumberText:SetFormattedText("%.1F", timeRemaining)
+			self.NumberText:SetFormattedText("%.1F", timeRemaining);
 		end
-		self:SetShown(timeRemaining > 0)
-		self.timeRemaining = timeRemaining
-		self.numberWidth = self.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET
+		self:SetShown(timeRemaining > 0);
+		self.timeRemaining = timeRemaining;
+		self.numberWidth = self.NumberText:GetStringWidth() + LOSS_OF_CONTROL_TIME_OFFSET;
 	else
-		self:Hide()
-		self.numberWidth = 0
+		self:Hide();
+		self.numberWidth = 0;
 	end
 end
 
