@@ -105,8 +105,8 @@ function LossOfControlFrame_OnUpdate(self, elapsed)
 end
 
 function LossOfControlFrame_OnHide(self)
-	self.fadeTime = nil
-	self.priority = nil
+	self.fadeTime = nil;
+	self.priority = nil;
 end
 
 function LossOfControlFrame_SetUpDisplay(self, animate, data)

@@ -17,14 +17,14 @@ SOUNDKIT = {
 };
 
 local blacklist = {
-    [72120] = true,   
-    [70106] = true, 
-    [72121] = true, 
-    [24134] = true, 
-    [71151] = true, 
-    [23262] = true, 
-    [38064] = true,     
-    [49010] = true,  
+    [72120] = true,
+    [70106] = true,
+    [72121] = true,
+    [24134] = true,
+    [71151] = true,
+    [23262] = true,
+    [38064] = true,
+    [49010] = true,
     -- [spellID] = true,
     -- [spellID] = true,
 };
@@ -313,7 +313,7 @@ function LossOfControl_AddInterruptControl(event, ...)
 end
 
 function LossOfControl_AddControlOrUpdate(event, unit)
-    if not ( unit == "player" ) then;
+    if not ( unit == "player" ) then
         return;
     end
 
