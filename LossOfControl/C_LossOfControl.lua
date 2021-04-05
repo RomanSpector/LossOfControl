@@ -108,6 +108,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(64058)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Psychic Horror
     [GetSpellInfo(64346)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Fiery Payback
     [GetSpellInfo(14180)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Sticky Tar
+    [GetSpellInfo(33126)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Dropped Weapon
 
     [GetSpellInfo(20511)] = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}, -- Intimidating Shout
     [GetSpellInfo(6215)]  = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}, -- Fear
@@ -171,6 +172,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(3635)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Crystal Gaze
     [GetSpellInfo(35313)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Hypnotic Gaze
     [GetSpellInfo(6524)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Ground Tremor
+    [GetSpellInfo(6607)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Lash
 
     [GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Pin
     [GetSpellInfo(47698)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Crystal Chains
