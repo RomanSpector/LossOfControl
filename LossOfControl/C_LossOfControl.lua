@@ -1,3 +1,4 @@
+local GetSpellInfo = GetSpellInfo;
 C_LossOfControl = C_LossOfControl or {};
 C_LossOfControl.ControlList = {
     -- Spell        ID             Type      priority 
@@ -166,6 +167,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(58154)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Hammer of Injustice    
     [GetSpellInfo(51491)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Unrelenting Strike
     [GetSpellInfo(21749)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Thorn Volley
+    [GetSpellInfo(3635)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Crystal Gaze
 
     [GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Pin
     [GetSpellInfo(47698)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Crystal Chains
