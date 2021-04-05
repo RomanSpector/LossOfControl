@@ -107,6 +107,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(53359)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Chimera Shot
     [GetSpellInfo(64058)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Psychic Horror
     [GetSpellInfo(64346)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Fiery Payback
+    [GetSpellInfo(14180)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Sticky Tar
 
     [GetSpellInfo(20511)] = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}, -- Intimidating Shout
     [GetSpellInfo(6215)]  = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}, -- Fear
