@@ -169,6 +169,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(21749)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Thorn Volley
     [GetSpellInfo(3635)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Crystal Gaze
     [GetSpellInfo(35313)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Hypnotic Gaze
+    [GetSpellInfo(6524)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Ground Tremor
 
     [GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Pin
     [GetSpellInfo(47698)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Crystal Chains
