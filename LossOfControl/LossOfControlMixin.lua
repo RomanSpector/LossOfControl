@@ -12,9 +12,8 @@ _G.LossOfControl = LossOfControl;
 LossOfControl.timer = LibStub("AceTimer-3.0");
 local LossOfControl_AddControlOrUpdate, LossOfControl_AddInterruptControl, LossOfControl_Hide;
 
-SOUNDKIT = {
-    UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468.ogg",
-};
+SOUNDKIT = SOUNDKIT or {};
+SOUNDKIT.UI_LOSS_OF_CONTROL_START = "Interface\\AddOns\\LossOfControl\\Media\\Sound\\34468.ogg";
 
 local blacklist = {
     [72120] = true,
