@@ -7,7 +7,8 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(71103)] = {LOSS_OF_CONTROL_DISPLAY_POLYMORPH, 6}, -- Combobulating Spray
     [GetSpellInfo(70410)] = {LOSS_OF_CONTROL_DISPLAY_POLYMORPH, 6}, -- Polymorph: Spider
 
-    [GetSpellInfo(14309)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Freezing Trap
+    [GetSpellInfo(14309)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Freezing Trap Effect
+    [GetSpellInfo(43415)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Freezing Trap
     [GetSpellInfo(60210)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Freezing Arrow
     [GetSpellInfo(49203)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Hungering Cold
     [GetSpellInfo(66012)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}, -- Freezing Slash
