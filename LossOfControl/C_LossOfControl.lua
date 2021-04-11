@@ -176,6 +176,8 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(6607)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Lash
     [GetSpellInfo(47700)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Crystal Freeze
     [GetSpellInfo(43936)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Knockdown Spin
+    [GetSpellInfo(52696)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Constricting Chains
+    [GetSpellInfo(58848)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Time Stop
 
     [52086]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Web Wrap
     [GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Pin
