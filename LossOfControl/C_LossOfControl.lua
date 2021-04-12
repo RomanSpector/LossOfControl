@@ -102,6 +102,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(19821)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Arcane Bomb
     [GetSpellInfo(55663)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Deafening Roar
     [GetSpellInfo(6726)]  = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Silence
+    [GetSpellInfo(58526)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}, -- Azure Bindings
 
     [GetSpellInfo(53543)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Snatch
     [GetSpellInfo(51722)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}, -- Dismantle
