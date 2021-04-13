@@ -130,7 +130,6 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(16075)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Throw Axe
     [GetSpellInfo(16045)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Encage
     [GetSpellInfo(47772)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Ice Nova
-    [GetSpellInfo(49704)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Encasing Webs
     [GetSpellInfo(69222)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Throw Shield
     [GetSpellInfo(48131)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Stomp
     [GetSpellInfo(50234)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}, -- Crush
@@ -207,6 +206,7 @@ C_LossOfControl.ControlList = {
     [GetSpellInfo(13099)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Net-o-MaticК
     [GetSpellInfo(52491)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Web Explosion
     [GetSpellInfo(56632)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Tangled Webs
+    [GetSpellInfo(49704)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}, -- Encasing Webs
 };
 
 C_LossOfControl.ControlData = {}; -- Таблица со всем активным контролем на нас
