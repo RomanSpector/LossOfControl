@@ -114,6 +114,7 @@ List[GetSpellInfo(64058)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Psychic Horr
 List[GetSpellInfo(64346)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Fiery Payback
 List[GetSpellInfo(14180)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Sticky Tar
 List[GetSpellInfo(33126)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Dropped Weapon
+List[GetSpellInfo(36208)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Steal Weapon
 
 List[GetSpellInfo(20511)] = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}; -- Intimidating Shout
 List[GetSpellInfo(6215)]  = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}; -- Fear
