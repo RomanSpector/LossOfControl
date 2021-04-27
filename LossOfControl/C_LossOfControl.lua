@@ -76,6 +76,7 @@ List[GetSpellInfo(48144)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Terrifying R
 List[GetSpellInfo(72435)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Defiling Horror
 List[GetSpellInfo(72426)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Impending Despair
 List[GetSpellInfo(36922)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Bellowing Roar
+List[GetSpellInfo(72426)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Impending Despair
 
 List[42380]               = {LOSS_OF_CONTROL_DISPLAY_DISORIENT, 6}; -- Conflagration
 List[GetSpellInfo(42950)] = {LOSS_OF_CONTROL_DISPLAY_DISORIENT, 6}; -- Dragons Breath
