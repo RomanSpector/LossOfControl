@@ -32,6 +32,7 @@ List[GetSpellInfo(13181)] = {LOSS_OF_CONTROL_DISPLAY_POSSESS, 6}; -- Gnomish Min
 
 List[GetSpellInfo(19503)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Scatter Shot
 List[GetSpellInfo(70302)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Blinding Dirt
+List[GetSpellInfo(74456)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Conflagration
 
 List[GetSpellInfo(20066)] = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Repentance
 List[GetSpellInfo(1776)]  = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Gouge
@@ -74,9 +75,7 @@ List[GetSpellInfo(67677)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Waking Night
 List[GetSpellInfo(73070)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Incite Terror
 List[GetSpellInfo(48144)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Terrifying Roar
 List[GetSpellInfo(72435)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Defiling Horror
-List[GetSpellInfo(72426)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Impending Despair
 List[GetSpellInfo(36922)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Bellowing Roar
-List[GetSpellInfo(72426)] = {LOSS_OF_CONTROL_DISPLAY_HORROR, 3}; -- Impending Despair
 
 List[42380]               = {LOSS_OF_CONTROL_DISPLAY_DISORIENT, 6}; -- Conflagration
 List[GetSpellInfo(42950)] = {LOSS_OF_CONTROL_DISPLAY_DISORIENT, 6}; -- Dragons Breath
