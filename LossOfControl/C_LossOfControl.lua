@@ -32,7 +32,7 @@ List[GetSpellInfo(13181)] = {LOSS_OF_CONTROL_DISPLAY_POSSESS, 6}; -- Gnomish Min
 
 List[GetSpellInfo(19503)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Scatter Shot
 List[GetSpellInfo(70302)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Blinding Dirt
-List[GetSpellInfo(74456)] = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Conflagration
+List[74456]               = {LOSS_OF_CONTROL_DISPLAY_CONFUSE, 6}; -- Conflagration
 
 List[GetSpellInfo(20066)] = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Repentance
 List[GetSpellInfo(1776)]  = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Gouge
