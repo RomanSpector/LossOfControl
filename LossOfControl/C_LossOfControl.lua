@@ -184,6 +184,7 @@ List[GetSpellInfo(43936)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Knockdown Spin
 List[GetSpellInfo(52696)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Constricting Chains
 List[GetSpellInfo(58848)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Time Stop
 List[GetSpellInfo(72428)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Despair Stricken
+List[GetSpellInfo(69133)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Lethargy
 
 List[52086]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Web Wrap
 List[GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Pin
