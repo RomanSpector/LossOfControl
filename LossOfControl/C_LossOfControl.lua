@@ -214,7 +214,7 @@ List[GetSpellInfo(52491)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Web Explosion
 List[GetSpellInfo(56632)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Tangled Webs
 List[GetSpellInfo(49704)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Encasing Webs
 List[GetSpellInfo(61579)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Runic Focus
-List[GetSpellInfo(71746)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Column of Frost
+List[GetSpellInfo(71647)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Ice Trap
 
 C_LossOfControl.ControlData = {}; -- Таблица со всем активным контролем на нас
 
