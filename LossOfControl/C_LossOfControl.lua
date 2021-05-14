@@ -105,6 +105,7 @@ List[GetSpellInfo(19821)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}; -- Arcane Bomb
 List[GetSpellInfo(55663)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}; -- Deafening Roar
 List[GetSpellInfo(6726)]  = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}; -- Silence
 List[GetSpellInfo(58526)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}; -- Azure Bindings
+List[GetSpellInfo(34190)] = {LOSS_OF_CONTROL_DISPLAY_SILENCE, 1}; -- Arcane Orb
 
 List[GetSpellInfo(53543)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Snatch
 List[GetSpellInfo(51722)] = {LOSS_OF_CONTROL_DISPLAY_DISARM, 2}; -- Dismantle
