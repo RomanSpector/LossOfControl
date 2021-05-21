@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: Loss of Control Alerts
+## Version: 1.0
+## Author: RomanSpector & Blizzard
+## Notes: Backport LossOfControl from retail
+## DefaultState: enabled
+## SavedVariables: LossOfControlDB
+
+LossOfControl.xml
