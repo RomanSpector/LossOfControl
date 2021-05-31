@@ -41,7 +41,7 @@ local function SetOptionEnable(self, value)
     end
 
     profileDB[self.option.name] = value;
-    C_Var.SetCVar("lossOfControl", value);
+    LoC_CVar.SetCVar("lossOfControl", value);
     LossOfControl:SendMessage("CVAR_UPDATE", LossOfControlFrame, "LOSS_OF_CONTROL", value and "1" or "0");
 end
 
@@ -146,7 +146,7 @@ function LossOfControl:OnInitialize()
 
     self:SetupOptions();
     self:SetDisplay();
-    C_Var.SetCVar("lossOfControl", self.db.char.myVal["Loss Of Control Alerts"]);
+    LoC_CVar.SetCVar("lossOfControl", self.db.char.myVal["Loss Of Control Alerts"]);
     self:SendMessage("VARIABLES_LOADED", LossOfControlFrame);
 
     SLASH_LossOfControl1  = "/loc";
@@ -173,17 +173,17 @@ function LossOfControl:SetDisplay()
     end
 end
 
-C_Var = C_Var or {};
-C_Var.Config = {};
+LoC_CVar = LoC_CVar or {};
+LoC_CVar.Config = {};
 
-function C_Var.GetCVarBool(name)
-    return C_Var.Config[name];
+function LoC_CVar.GetCVarBool(name)
+    return LoC_CVar.Config[name];
 end
 
-function C_Var.SetCVar(eventName, value)
+function LoC_CVar.SetCVar(eventName, value)
 	if ( type(value) == "boolean" ) then
-        C_Var.Config[eventName] = value and "1" or "0";
+        LoC_CVar.Config[eventName] = value and "1" or "0";
 	else
-        C_Var.Config[eventName] = value and tostring(value) or nil;
+        LoC_CVar.Config[eventName] = value and tostring(value) or nil;
 	end
 end

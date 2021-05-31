@@ -77,7 +77,7 @@ function LossOfControlFrame_OnEvent(event, self, ...)
 			end
 		end
 	elseif ( event == "VARIABLES_LOADED" ) then
-		if ( C_Var.GetCVarBool("lossOfControl") ) then
+		if ( LoC_CVar.GetCVarBool("lossOfControl") ) then
 			self:RegisterEvents("LOSS_OF_CONTROL_UPDATE");
 			self:RegisterEvents("LOSS_OF_CONTROL_ADDED");
 		end
