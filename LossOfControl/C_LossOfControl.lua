@@ -127,7 +127,7 @@ List[GetSpellInfo(29544)] = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}; -- Frightening Sh
 
 List[15655]               = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Shield Slam
 List[8285]                = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Rampage
-List[GetSpellInfo(68771)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Thundering Stomp
+List[68771]                 = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Thundering Stomp
 List[GetSpellInfo(49802)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Maim
 List[GetSpellInfo(5918)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Shadowstalker Stab
 List[GetSpellInfo(15283)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Stunning Blow
