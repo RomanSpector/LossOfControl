@@ -4,7 +4,7 @@
 
 ## Open -main folder in zip and copy LossOfControl folder to AddOns
 
-## [Download](https://github.com/RomanSpector/CompactRaidFrame/archive/refs/heads/main.zip)
+## [Download](https://github.com/RomanSpector/LossOfControl/archive/refs/heads/main.zip)
 
 ## [Join my Discord](https://discord.gg/wXw6pTvxMQ)
 
