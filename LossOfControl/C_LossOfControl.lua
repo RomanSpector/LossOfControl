@@ -15,6 +15,7 @@ List[GetSpellInfo(60210)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}; -- Freezing Arr
 List[GetSpellInfo(49203)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}; -- Hungering Cold
 List[GetSpellInfo(66012)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}; -- Freezing Slash
 List[GetSpellInfo(48400)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}; -- Frost Tomb
+List[GetSpellInfo(67650)] = {LOSS_OF_CONTROL_DISPLAY_FREEZE, 6}; -- Arctic Breath
 
 List[GetSpellInfo(33786)] = {LOSS_OF_CONTROL_DISPLAY_CYCLONE, 7}; -- Cyclone
 
