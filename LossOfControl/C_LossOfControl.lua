@@ -49,6 +49,7 @@ List[GetSpellInfo(4067)]  = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Big Br
 List[GetSpellInfo(4068)]  = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Iron Grenade
 List[GetSpellInfo(4069)]  = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Big Iron Bomb
 List[GetSpellInfo(12024)] = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Net
+List[GetSpellInfo(59726)] = {LOSS_OF_CONTROL_DISPLAY_INCAPACITATE, 5}; -- Shock of Sorrow
 
 List[GetSpellInfo(51724)] = {LOSS_OF_CONTROL_DISPLAY_SAP, 6}; -- Sap
 
@@ -129,13 +130,14 @@ List[GetSpellInfo(29544)] = {LOSS_OF_CONTROL_DISPLAY_FEAR, 3}; -- Frightening Sh
 List[15655]               = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Shield Slam
 List[8285]                = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Rampage
 List[68771]               = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Thundering Stomp
+List[47772]               = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Ice Nova
+List[56935]               = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Ice Nova
 List[GetSpellInfo(49802)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Maim
 List[GetSpellInfo(5918)]  = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Shadowstalker Stab
 List[GetSpellInfo(15283)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Stunning Blow
 List[GetSpellInfo(36877)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Stun Forever
 List[GetSpellInfo(16075)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Throw Axe
 List[GetSpellInfo(16045)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Encage
-List[GetSpellInfo(47772)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Ice Nova
 List[GetSpellInfo(69222)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Throw Shield
 List[GetSpellInfo(48131)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Stomp
 List[GetSpellInfo(50234)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Crush
@@ -190,6 +192,7 @@ List[GetSpellInfo(69133)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Lethargy
 List[GetSpellInfo(29484)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Web Spray
 
 List[52086]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Web Wrap
+List[22519]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Ice Nova
 List[GetSpellInfo(53548)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Pin
 List[GetSpellInfo(47698)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Crystal Chains
 List[GetSpellInfo(48179)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Crystallize
