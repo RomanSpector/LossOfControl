@@ -330,10 +330,10 @@ end
 TimeLeftMixin = {};
 
 function TimeLeftMixin:SetShown(value)
-    if value then
+    if ( value ) then
         self:Show();
     else
-         self:Hide();
+        self:Hide();
     end
 end
 
