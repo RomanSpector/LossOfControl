@@ -191,6 +191,7 @@ List[GetSpellInfo(72428)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Despair Strick
 List[GetSpellInfo(69133)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Lethargy
 List[GetSpellInfo(29484)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Web Spray
 List[GetSpellInfo(74531)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Tail Lash
+List[GetSpellInfo(74509)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Repelling Wave
 
 List[52086]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Web Wrap
 List[22519]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Ice Nova
