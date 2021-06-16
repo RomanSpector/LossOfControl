@@ -192,6 +192,7 @@ List[GetSpellInfo(69133)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Lethargy
 List[GetSpellInfo(29484)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Web Spray
 List[GetSpellInfo(74531)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Tail Lash
 List[GetSpellInfo(74509)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Repelling Wave
+List[GetSpellInfo(71163)] = {LOSS_OF_CONTROL_DISPLAY_STUN, 5}; -- Devour Humanoid
 
 List[52086]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Web Wrap
 List[22519]               = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Ice Nova
@@ -223,6 +224,7 @@ List[GetSpellInfo(56632)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Tangled Webs
 List[GetSpellInfo(49704)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Encasing Webs
 List[GetSpellInfo(61579)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Runic Focus
 List[GetSpellInfo(71647)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Ice Trap
+List[GetSpellInfo(72090)] = {LOSS_OF_CONTROL_DISPLAY_ROOT, 4}; -- Freezing Ground
 
 C_LossOfControl.ControlData = {}; -- Таблица со всем активным контролем на нас
 
