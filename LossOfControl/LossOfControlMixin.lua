@@ -25,7 +25,6 @@ local blacklist = {
     [38064] = true,
     [49010] = true,
     [72426] = true,
-    [1715]  = true,
     -- [spellID] = true,
 };
 
