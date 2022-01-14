@@ -167,7 +167,7 @@ local displayType = {
 };
 
 function LossOfControl:SetDisplay()
-    for _, spellData in pairs(C_LossOfControl.ControlList) do
+    for _, spellData in pairs(LOSS_OF_CONTROL_STORAGE) do
         local controlType = spellData[1];
         spellData[3] = self:GetDisplayValue(displayType[controlType] or LOC_TYPE_FULL);
     end
@@ -181,9 +181,9 @@ function LoC_CVar.GetCVarBool(name)
 end
 
 function LoC_CVar.SetCVar(eventName, value)
-	if ( type(value) == "boolean" ) then
+    if ( type(value) == "boolean" ) then
         LoC_CVar.Config[eventName] = value and "1" or "0";
-	else
+    else
         LoC_CVar.Config[eventName] = value and tostring(value) or nil;
-	end
+    end
 end

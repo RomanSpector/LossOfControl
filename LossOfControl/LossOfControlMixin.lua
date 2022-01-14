@@ -84,28 +84,28 @@ local lockoutChannel = {
 };
 
 function RaidNotice_UpdateSlots( slotFrame, timings, elapsedTime, hasFading  )
-	if ( slotFrame.scrollTime ) then
-		slotFrame.scrollTime = slotFrame.scrollTime + elapsedTime;
-		if ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_UP_TIME"] ) then
+    if ( slotFrame.scrollTime ) then
+        slotFrame.scrollTime = slotFrame.scrollTime + elapsedTime;
+        if ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_UP_TIME"] ) then
             slotFrame:SetTextHeight(floor(timings["RAID_NOTICE_MIN_HEIGHT"]+
             ((timings["RAID_NOTICE_MAX_HEIGHT"]-timings["RAID_NOTICE_MIN_HEIGHT"])*slotFrame.scrollTime/timings["RAID_NOTICE_SCALE_UP_TIME"])));
-        		elseif ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_DOWN_TIME"] ) then
+                elseif ( slotFrame.scrollTime <= timings["RAID_NOTICE_SCALE_DOWN_TIME"] ) then
             slotFrame:SetTextHeight(floor(timings["RAID_NOTICE_MAX_HEIGHT"] -
             ((timings["RAID_NOTICE_MAX_HEIGHT"]-timings["RAID_NOTICE_MIN_HEIGHT"])*(slotFrame.scrollTime -
              timings["RAID_NOTICE_SCALE_UP_TIME"])/(timings["RAID_NOTICE_SCALE_DOWN_TIME"] -
              timings["RAID_NOTICE_SCALE_UP_TIME"]))));
-		else
-			slotFrame:SetTextHeight(timings["RAID_NOTICE_MIN_HEIGHT"]);
-			slotFrame.scrollTime = nil;
-		end
-	end
+        else
+            slotFrame:SetTextHeight(timings["RAID_NOTICE_MIN_HEIGHT"]);
+            slotFrame.scrollTime = nil;
+        end
+    end
     if ( hasFading ) then
-		FadingFrame_OnUpdate(slotFrame);
-	end
+        FadingFrame_OnUpdate(slotFrame);
+    end
 end
 
 function CooldownFrame_Clear(self)
-	self:Hide();
+    self:Hide();
 end
 
 -------------------------------------------------------------
@@ -115,10 +115,10 @@ LossOfControlAnimGroupMixin = {};
 LossOfControlAnimGroupMixin.AnimationGroup = {};
 
 function LossOfControlAnimGroupMixin:Mixin(...)
-	for i = 1, select("#", ...) do
-		local mixin = select(i, ...);
-		self.AnimationGroup[i] = mixin;
-	end
+    for i = 1, select("#", ...) do
+        local mixin = select(i, ...);
+        self.AnimationGroup[i] = mixin;
+    end
 end
 
 function LossOfControlAnimGroupMixin:Play()
@@ -162,34 +162,35 @@ function LossOfContolrMixin:Added()
     local update = false;
 
     for i = 1, 255 do
-        local AbilityName, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL");
-        if ( not AbilityName or blacklist[spellID] ) then
+        local name, _, iconTexture, _, locType, duration, expirationTime, _, _, _, spellID = UnitAura("player", i, "HARMFUL");
+        if ( not name or blacklist[spellID] ) then
             break;
         end
 
-        if C_LossOfControl.ControlList[spellID]
-        or C_LossOfControl.ControlList[AbilityName] then
-            local spellInfo = C_LossOfControl.ControlList;
+        local spellInfo = LOSS_OF_CONTROL_STORAGE[spellID];
+
+        if spellInfo then
+
             local Fields = {
                 locType = locType,
                 spellID = spellID,
-                displayText = spellInfo[spellID] and spellInfo[spellID][1] or spellInfo[AbilityName][1],
+                displayText = spellInfo[1],
                 iconTexture = iconTexture,
                 startTime = GetTime(),
                 expirationTime = expirationTime,
                 timeRemaining = expirationTime - GetTime(),
                 duration = duration,
                 lockoutSchool = nil,
-                priority = spellInfo[spellID] and spellInfo[spellID][2] or spellInfo[AbilityName][2],
-                displayType = spellInfo[spellID] and spellInfo[spellID][3] or spellInfo[AbilityName][3],
-            }
+                priority = spellInfo[2],
+                displayType = spellInfo[3],
+            };
+
             if not self.ActiveControl[spellID] or self.ActiveControl[spellID] < expirationTime then
                 self.ActiveControl[spellID] = expirationTime;
                 self:ScanEvents(Fields);
                 update = true;
             end
         end
-
     end
 
     return update;
@@ -338,21 +339,21 @@ function TimeLeftMixin:SetShown(value)
 end
 
 function Mixin(object, ...)
-	for i = 1, select("#", ...) do
-		local mixin = select(i, ...);
-		for k, v in pairs(mixin) do
-			object[k] = v;
-		end
-	end
-	return object;
+    for i = 1, select("#", ...) do
+        local mixin = select(i, ...);
+        for k, v in pairs(mixin) do
+            object[k] = v;
+        end
+    end
+    return object;
 end
 -- where ​... are the mixins to mixin
 function CreateFromMixins(...)
-	return Mixin({}, ...);
+    return Mixin({}, ...);
 end
 
 function CreateAndInitFromMixin(mixin, ...)
-	local object = CreateFromMixins(mixin);
-	object:Init(...);
-	return object;
+    local object = CreateFromMixins(mixin);
+    object:Init(...);
+    return object;
 end
