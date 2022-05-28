@@ -1283,6 +1283,7 @@ List[72848] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Арктическое 
 List[73794] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ударная волна
 List[73795] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ударная волна
 List[73796] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ударная волна
+List[74509] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Отражающая волна
 List[74531] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Удар хвостом
 List[75343] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ударная волна
 List[75349] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Вихрь
