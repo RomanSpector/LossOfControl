@@ -1177,6 +1177,7 @@ List[58154] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Молот неспра
 List[58534] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Глубокая заморозка
 List[58619] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Рывок
 List[58628] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Символ хватки смерти
+List[58663] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Топот
 List[58747] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Перехват
 List[58823] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Удушающие оковы
 List[58848] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Остановка времени
