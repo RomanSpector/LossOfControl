@@ -936,6 +936,7 @@ List[28314] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Касание Огне
 List[28445] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Улучшенный контузящий выстрел
 List[28725] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Громовая поступь
 List[29300] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ультразвук
+List[29484] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Летящая паутина
 List[29670] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ледяной склеп
 List[29676] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Вращающаяся булава
 List[29684] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Мощный удар щитом
