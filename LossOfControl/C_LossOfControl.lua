@@ -1100,6 +1100,7 @@ List[46968] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ударная волн
 List[47340] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Оглушение темным пивом официантки
 List[47442] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Бабах!
 List[47481] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Отгрызть
+List[47700] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Ледяной кристалл
 List[47736] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Остановка времени
 List[47846] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Неистовство Тьмы
 List[47847] = { LOSS_OF_CONTROL_DISPLAY_STUN, Stun }; -- Неистовство Тьмы
