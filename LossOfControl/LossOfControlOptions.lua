@@ -50,6 +50,7 @@ local function IsOptionEnable()
 end
 
 LossOfControl.default = {
+    locale = "enUS",
     [lossOfControl] = true,
     [LOC_TYPE_FULL] = 2,
     [LOC_TYPE_SILENCE] = 2,
@@ -141,7 +142,14 @@ end
 
 function LossOfControl:OnInitialize()
     self.db = AceDB:New("LossOfControlDB");
-    self.db.char.myVal = self.db.char.myVal or self.default;
+
+	if self.db.char.myVal and self.db.char.myVal.locale and self.db.char.myVal.locale == GetLocale() then
+        self.db.char.myVal = self.db.char.myVal
+    else
+        self.db.char.myVal = self.default
+        self.db.char.myVal.locale = GetLocale()
+    end
+    
     profileDB = self.db.char.myVal;
 
     self:SetupOptions();
