@@ -143,7 +143,7 @@ end
 function LossOfControl:OnInitialize()
     self.db = AceDB:New("LossOfControlDB");
 
-	if self.db.char.myVal and self.db.char.myVal.locale and self.db.char.myVal.locale == GetLocale() then
+    if self.db.char.myVal and self.db.char.myVal.locale and self.db.char.myVal.locale == GetLocale() then
         self.db.char.myVal = self.db.char.myVal
     else
         self.db.char.myVal = self.default
