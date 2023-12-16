@@ -2,10 +2,6 @@
 --######         Bakcport LossOfControl from retail              #######
 ------------------------------------------------------------------------
 --######################################################################
-------------------------------------------------------------------------
---######       My Discord: https://discord.gg/Fm9kgfk            #######
-------------------------------------------------------------------------
---######################################################################
 
 local LossOfControl = LibStub("AceAddon-3.0"):GetAddon("LossOfControl", "AceEvent-3.0");
 
@@ -162,6 +158,10 @@ function LossOfControl:OnInitialize()
         InterfaceOptionsFrame_OpenToCategory(self.optionsFrames.general);
     end
 
+    if ( not ROMANSPECTOR_DISCORD ) then
+        ROMANSPECTOR_DISCORD = true;
+        DEFAULT_CHAT_FRAME:AddMessage("|cffbaf5aeCompactRaidFrame|r: See more |cff44d3e3https://discord.gg/4GTrkkaV9U|r");
+    end
 end
 
 function LossOfControl:GetDisplayValue( controlType )

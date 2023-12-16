@@ -6,6 +6,4 @@
 
 ## [Download](https://github.com/RomanSpector/LossOfControl/archive/refs/heads/main.zip)
 
-## [Join my Discord](https://discord.gg/wXw6pTvxMQ)
-
 ![alt tag](https://media.wago.io/cards/2FxJjFUWw/c-1613239420237.jpg)
